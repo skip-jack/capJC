@@ -1,0 +1,563 @@
+.cylindrical {
+  display: flex;
+  flex-direction: column;
+  min-height: 1080px;
+  align-items: center;
+  position: relative;
+}
+
+.cylindrical .div-jsx {
+  width: 1920px;
+  align-items: center;
+  padding: 24px 260px;
+  flex: 0 0 auto;
+  background-color: #5228f5;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.cylindrical .header {
+  display: flex;
+  max-width: 1400px;
+  width: 1400px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px 24px 48px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #ffffff;
+  border-radius: 50px;
+}
+
+.cylindrical .span-jsx {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.cylindrical .w-hoo {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 36.8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+}
+
+.cylindrical .div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.cylindrical .nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 523.06px 0px 523.07px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.cylindrical .link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  margin-left: -1.34px;
+}
+
+.cylindrical .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 18.4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+}
+
+.cylindrical .link-margin {
+  position: relative;
+  width: 86.94px;
+  height: 18.39px;
+  margin-right: -1.34px;
+  margin-left: -0.38px;
+}
+
+.cylindrical .link-results {
+  position: absolute;
+  height: 19px;
+  top: -1px;
+  left: 32px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 18.4px;
+  white-space: nowrap;
+}
+
+.cylindrical .link-2 {
+  position: relative;
+  width: 4px;
+  height: 18.39px;
+  border: 2px dashed;
+  border-color: #78787866;
+}
+
+.cylindrical .div-jsx-wrapper {
+  display: flex;
+  width: 1920px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 260px;
+  position: relative;
+  flex: 0 0 auto;
+  margin-top: -0.3px;
+  background-color: #5228f5;
+}
+
+.cylindrical .div-jsx-2 {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  align-items: center;
+  justify-content: center;
+  padding: 96px 300px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.cylindrical .div-jsx-3 {
+  position: relative;
+  width: 800px;
+  height: 327.17px;
+}
+
+.cylindrical .heading {
+  display: inline-flex;
+  flex-direction: column;
+  max-width: 800px;
+  align-items: center;
+  padding: 1.91e-6px 69.4px 0px 69.6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cylindrical .welcome-let-s {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Raleway", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 72px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 115.2px;
+}
+
+.cylindrical .p {
+  position: absolute;
+  height: 29px;
+  top: 261px;
+  left: 233px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 28.8px;
+  white-space: nowrap;
+}
+
+.cylindrical .div-jsx-4 {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  top: 323px;
+  left: 398px;
+  border: 2px dashed;
+  border-color: #78787866;
+}
+
+.cylindrical .div-wrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.cylindrical .link-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.cylindrical .let-s-go-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 27.3px 24px 48px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #291477;
+  border-radius: 45px;
+  box-shadow: 5px 5px 10px #d4d4d4;
+}
+
+.cylindrical .let-s-go {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 20.7px;
+  white-space: nowrap;
+}
+
+.cylindrical .div-jsx-5 {
+  display: flex;
+  width: 1920px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex: 0 0 auto;
+  margin-top: -0.3px;
+  background-color: #000000;
+}
+
+.cylindrical .div-jsx-6 {
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+  height: 1486px;
+}
+
+.cylindrical .heading-get-your {
+  position: absolute;
+  height: 64px;
+  top: 95px;
+  left: 809px;
+  font-family: "Raleway", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 64px;
+  white-space: nowrap;
+}
+
+.cylindrical .text-wrapper-2 {
+  position: absolute;
+  height: 26px;
+  top: 182px;
+  left: 826px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 25.6px;
+  white-space: nowrap;
+}
+
+.cylindrical .div-jsx-7 {
+  display: flex;
+  width: 965px;
+  height: 91px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 274.41px 24.61px;
+  position: absolute;
+  top: 234px;
+  left: 478px;
+}
+
+.cylindrical .button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 47.41px 23.39px 47.78px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #291477;
+  border-radius: 45px;
+  all: unset;
+  box-sizing: border-box;
+}
+
+.cylindrical .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 18.4px;
+  white-space: nowrap;
+}
+
+.cylindrical .button-2 {
+  display: flex;
+  flex-direction: column;
+  width: 213px;
+  align-items: center;
+  padding: 24px 63.82px 23.39px 48.18px;
+  position: relative;
+  margin-left: -0.01px;
+  background-color: #291477;
+  border-radius: 45px;
+  all: unset;
+  box-sizing: border-box;
+}
+
+.cylindrical .div-jsx-8 {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  top: 349px;
+  left: 958px;
+  border: 2px dashed;
+  border-color: #78787866;
+}
+
+.cylindrical .link-3 {
+  display: inline-flex;
+  align-items: flex-start;
+  padding: 24px 47.39px 23.39px 48px;
+  position: absolute;
+  top: 377px;
+  left: 880px;
+  background-color: #291477;
+  border-radius: 45px;
+  box-shadow: 5px 5px 1px #d4d4d4;
+}
+
+.cylindrical .text-wrapper-4 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 18.4px;
+  white-space: nowrap;
+}
+
+.cylindrical .footer-wrapper {
+  display: flex;
+  width: 1920px;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 260px;
+  position: relative;
+  flex: 0 0 auto;
+  margin-top: -0.3px;
+  background-color: #000000;
+}
+
+.button, .button-2 {
+  background-color: #291477; /* Replace with your theme color */
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: white; /* You can change this based on your theme */
+}
+
+.button:hover, .button-2:hover {
+  background-color: #1b036f; /* Slightly darker shade for hover effect */
+}
+
+
+.cylindrical .footer {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 64px 48px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+  background-color: transparent;
+}
+
+.cylindrical .div-jsx-9 {
+  position: relative;
+  max-width: 1400px;
+  width: 125.08px;
+  height: 79.19px;
+}
+
+.cylindrical .div-wrapper-2 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cylindrical .text-wrapper-5 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 36.8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+}
+
+.cylindrical .nav-2 {
+  position: absolute;
+  width: 120px;
+  height: 18px;
+  top: 61px;
+  left: 3px;
+}
+
+.cylindrical .overlap-group {
+  position: absolute;
+  width: 49px;
+  height: 18px;
+  top: 0;
+  left: 0;
+}
+
+.cylindrical .text-wrapper-6 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #d9d9d9;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 18.4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+}
+
+.cylindrical .div-jsx-10 {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  top: 7px;
+  left: 45px;
+  border: 2px dashed;
+  border-color: #78787866;
+}
+
+.cylindrical .span-jsx-2 {
+  position: absolute;
+  width: 71px;
+  height: 18px;
+  top: 0;
+  left: 49px;
+}
+
+.cylindrical .text-wrapper-7 {
+  position: absolute;
+  height: 19px;
+  top: -1px;
+  left: 16px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #d9d9d9;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 18.4px;
+  white-space: nowrap;
+}
+
+.cylindrical .div-jsx-11 {
+  position: relative;
+  width: 1304px;
+  height: 4px;
+  border: 2px dashed;
+  border-color: #78787866;
+}
+
+.cylindrical .div-jsx-12 {
+  height: 65px;
+  align-items: flex-start;
+  padding: 32px 0px;
+  align-self: stretch;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.cylindrical .div-jsx-13 {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 1px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #595959;
+}

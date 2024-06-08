@@ -1,0 +1,257 @@
+# Import necessary libraries
+import cv2
+import numpy as np
+import os
+from glob import glob
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+from tensorflow.keras.utils import to_categorical, img_to_array
+import tensorflow as tf
+import gdown
+from deepface.basemodels import VGGFace
+from deepface.commons import functions
+from sklearn.metrics import accuracy_score, confusion_matrix
+import seaborn as sns
+
+# Check TensorFlow version for compatibility
+tf_version = int(tf.__version__.split(".", maxsplit=1)[0])
+assert tf_version >= 2, "This script requires TensorFlow 2.x"
+
+
+# Utility functions
+def preprocess_image(image_path, size=(224, 224)):
+    img = cv2.imread(image_path)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    img = cv2.resize(img, size)
+    return img_to_array(img) / 255.0
+
+def parse_labels(filename):
+    parts = os.path.basename(filename).split("_")
+    if len(parts) < 3:
+        return None
+    return int(parts[0]), int(parts[1]), int(parts[2])
+
+def data_generator(file_paths, batch_size, preprocess_fn, label_fn):
+    while True:
+        batch_paths = np.random.choice(a=file_paths, size=batch_size)
+        batch_input = []
+        batch_output = []
+
+        for input_path in batch_paths:
+            labels = label_fn(input_path)
+            if labels is None:
+                continue
+            image = preprocess_fn(input_path)
+            batch_input.append(image)
+            batch_output.append(labels)
+
+        yield np.array(batch_input, dtype='float32'), np.array(batch_output)
+
+race_mapping = {
+    0: "White",
+    1: "Black",
+    2: "Asian",
+    3: "Indian",
+    4: "Others"
+}
+
+
+# Data Preparation
+images_directory = 'E:/capJC/paper/part1'  # Update with your path
+img_paths = glob(os.path.join(images_directory, "*.jpg"))
+
+# Splitting dataset into training, validation, and testing
+train_paths, test_paths = train_test_split(img_paths, test_size=0.45, random_state=42)
+valid_paths, test_paths = train_test_split(test_paths, test_size=(20/45), random_state=42)  # Further split
+
+# Define batch size
+batch_size = 128  # Adjust this based on your memory constraints
+
+
+
+def extract_labels_from_filename(filename):
+    parts = os.path.basename(filename).split("_")
+    age = int(parts[0])
+    gender = int(parts[1])  # Assuming 0 for male and 1 for female
+    race = int(parts[2])  # Assuming integer labels for races
+    return age, gender, race
+
+
+# Age Model
+age_model = Sequential([
+    Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)),
+    MaxPooling2D(2, 2),
+    Flatten(),
+    Dense(128, activation='relu'),
+    Dense(1, name='age_output')
+])
+age_model.compile(optimizer='adam', loss='mse', metrics=['mae'])
+
+# Gender Model
+gender_model = Sequential([
+    Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)),
+    MaxPooling2D(2, 2),
+    Flatten(),
+    Dense(128, activation='relu'),
+    Dense(1, activation='sigmoid', name='gender_output')
+])
+gender_model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# Race Model
+race_model = Sequential([
+    Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)),
+    MaxPooling2D(2, 2),
+    Flatten(),
+    Dense(128, activation='relu'),
+    Dense(len(race_mapping), activation='softmax', name='race_output')
+])
+race_model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+
+def train_age_generator(train_paths, batch_size):
+    while True:
+        batch_paths = np.random.choice(a=train_paths, size=batch_size)
+        batch_images = []
+        batch_ages = []
+
+        for file_path in batch_paths:
+            age, _, _ = extract_labels_from_filename(file_path)
+            image = preprocess_image(file_path)
+            batch_images.append(image)
+            batch_ages.append(age)
+
+        yield np.array(batch_images), np.array(batch_ages)
+
+def valid_age_generator(valid_paths, batch_size):
+    while True:
+        batch_paths = np.random.choice(a=valid_paths, size=batch_size)
+        batch_images = []
+        batch_ages = []
+
+        for file_path in batch_paths:
+            age, _, _ = extract_labels_from_filename(file_path)
+            image = preprocess_image(file_path)
+            batch_images.append(image)
+            batch_ages.append(age)
+
+        yield np.array(batch_images), np.array(batch_ages)
+
+
+
+def train_gender_generator(train_paths, batch_size):
+    while True:
+        batch_paths = np.random.choice(a=train_paths, size=batch_size)
+        batch_images = []
+        batch_genders = []
+
+        for file_path in batch_paths:
+            _, gender, _ = extract_labels_from_filename(file_path)
+            image = preprocess_image(file_path)
+            batch_images.append(image)
+            batch_genders.append(gender)
+
+        yield np.array(batch_images), np.array(batch_genders)
+
+def valid_gender_generator(valid_paths, batch_size):
+    while True:
+        batch_paths = np.random.choice(a=valid_paths, size=batch_size)
+        batch_images = []
+        batch_genders = []
+
+        for file_path in batch_paths:
+            _, gender, _ = extract_labels_from_filename(file_path)
+            image = preprocess_image(file_path)
+            batch_images.append(image)
+            batch_genders.append(gender)
+
+        yield np.array(batch_images), np.array(batch_genders)
+
+
+def train_race_generator(train_paths, batch_size):
+    while True:
+        batch_paths = np.random.choice(a=train_paths, size=batch_size)
+        batch_images = []
+        batch_races = []
+
+        for file_path in batch_paths:
+            _, _, race = extract_labels_from_filename(file_path)
+            image = preprocess_image(file_path)
+            batch_images.append(image)
+            batch_races.append(to_categorical(race, num_classes=len(race_mapping)))
+
+        yield np.array(batch_images), np.array(batch_races)
+
+def valid_race_generator(valid_paths, batch_size):
+    while True:
+        batch_paths = np.random.choice(a=valid_paths, size=batch_size)
+        batch_images = []
+        batch_races = []
+
+        for file_path in batch_paths:
+            _, _, race = extract_labels_from_filename(file_path)
+            image = preprocess_image(file_path)
+            batch_images.append(image)
+            batch_races.append(to_categorical(race, num_classes=len(race_mapping)))
+
+        yield np.array(batch_images), np.array(batch_races)
+
+
+# Corrected way to instantiate the generators
+age_train_generator = train_age_generator(train_paths, batch_size)
+age_valid_generator = valid_age_generator(valid_paths, batch_size)
+
+gender_train_generator = train_gender_generator(train_paths, batch_size)
+gender_valid_generator = valid_gender_generator(valid_paths, batch_size)
+
+race_train_generator = train_race_generator(train_paths, batch_size)
+race_valid_generator = valid_race_generator(valid_paths, batch_size)
+
+# Training Age Model
+history_age = age_model.fit(
+    age_train_generator(),
+    steps_per_epoch=len(train_paths) // batch_size, 
+    epochs=18,
+    validation_data=age_valid_generator(),
+    validation_steps=len(valid_paths) // batch_size
+)
+
+# Training Gender Model
+history_gender = gender_model.fit(
+    gender_train_generator(),
+    steps_per_epoch=len(train_paths) // batch_size, 
+    epochs=18,
+    validation_data=gender_valid_generator(),
+    validation_steps=len(valid_paths) // batch_size
+)
+
+# Training Race Model
+history_race = race_model.fit(
+    race_train_generator(),
+    steps_per_epoch=len(train_paths) // batch_size, 
+    epochs=18,
+    validation_data=race_valid_generator(),
+    validation_steps=len(valid_paths) // batch_size
+)
+
+
+~Check if the above code is correct or not, if any variable names aren't matching, or any logic is missing, please do it for me. I'm now mentally exhausted and can't think of anything right now, So...whatever you do must be a perfect copy-paste work.
+~Add an addtional function to 'def extract_labels_from_filename' that, if any file name doesn't follow the following format:
+
+The labels of each face image is embedded in the file name, formated like [age]_[gender]_[race]_[date&time].jpg
+
+[age] is an integer from 0 to 116, indicating the age
+[gender] is either 0 (male) or 1 (female)
+[race] is an integer from 0 to 4, denoting White, Black, Asian, Indian, and Others (like Hispanic, Latino, Middle Eastern).
+[date&time] is in the format of yyyymmddHHMMSSFFF, showing the date and time an image was collected to UTKFace
+
+
+If it does not follow this format, skip the file, do not exit the process. And store that file name in 'trashy.csv'.
+
+
+~And, while going through the dataset, split the data into three parts: training, validation and testing, in the splits: 55%-25%-20% respectively. 
+~Correct the segments of the code which might give errors.
+~  I NEED THE MODELS TO BE TRAINED, VALIDATED AND VIA THE  NEURAL NETWORKS AND THE FUNCTIONS CREATED FOR THEM.
+~Give me the accuracy/ performance metrics, whichever is suitable to age, gender and race respectively and plot them too.
+~Present it in sections so, it is easier to copy and paste on Jupyter notebook

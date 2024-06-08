@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+</head>
+<body>
+    <div class="cylindrical">
+        <div class="div-jsx">
+            <header class="header">
+                <div class="div-wrapper"><div class="w-hoo">WHOO?</div></div>
+                <div class="div">
+                    <div class="nav">
+                        <div class="link"><div class="text-wrapper">Home</div></div>
+                    </div>
+                    <div class="link-2"></div>
+                </div>
+            </header>
+        </div>
+        <div class="div-jsx-wrapper">
+            <div class="div-jsx-2">
+                <div class="div-jsx-3">
+                    <div class="heading">
+                        <p class="here-are-the-results">Here are the results for<br />the uploaded image:</p>
+                    </div>
+                    <div class="div-jsx-4"></div>
+                    <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" class="image-frame">
+
+                    {% if analysis %}
+                    <p class="result-text">Age: {{ analysis['age'] }}</p>
+                    <p class="result-text">Gender: {{ gender }}</p>
+                    <p class="result-text">Race: {{ analysis['dominant_race'] }}</p>
+                    <p class="result-text">Race Probabilities:</p>
+                    <ul class="race-list">
+                        {% for race_name, probability in analysis['race'].items() %}
+                            <li>{{ race_name.title() }}: {{ '%.2f' | format(probability) }}%</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="no-data">No analysis data available.</p>
+                {% endif %}
+                    <a href="{{ url_for('home') }}" class="upload-link">Upload another image</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-wrapper">
+            <footer class="footer">
+                <div class="div-jsx-6">
+                    <div class="span-jsx"><div class="text-wrapper-2">WHOO?</div></div>
+                    <div class="nav-2">
+                        <div class="div-wrapper"><div class="text-wrapper-3">Home</div></div>
+                        <div class="div-jsx-7"></div>
+                    </div>
+                </div>
+                <div class="div-jsx-8"><div class="div-jsx-9"></div></div>
+                <div class="div-jsx-10"></div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
+
+

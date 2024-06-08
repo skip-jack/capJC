@@ -1,0 +1,342 @@
+.cylindrical {
+  display: flex;
+  flex-direction: column;
+  min-height: 1080px;
+  align-items: center;
+  position: relative;
+}
+
+.cylindrical .div-jsx {
+  display: flex;
+  flex-direction: column;
+  width: 1920px;
+  align-items: center;
+  padding: 24px 260px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #5228f5;
+}
+
+.cylindrical .header {
+  display: flex;
+  max-width: 1400px;
+  width: 1400px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px 24px 48px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #ffffff;
+  border-radius: 50px;
+}
+
+.cylindrical .div-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.cylindrical .w-hoo {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Lato", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 36.8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+}
+
+.cylindrical .div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.cylindrical .nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 566.16px 0px 566.53px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.cylindrical .link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  margin-left: -1.34px;
+  margin-right: -1.34px;
+}
+
+.cylindrical .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 18.4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+}
+
+.cylindrical .link-2 {
+  position: relative;
+  width: 4px;
+  height: 18.39px;
+  border: 2px dashed;
+  border-color: #78787866;
+}
+
+.cylindrical .div-jsx-wrapper {
+  display: flex;
+  width: 1920px;
+  height: 1576px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 260px 1113.63px;
+  position: relative;
+  background-color: #5228f5;
+}
+
+.cylindrical .div-jsx-2 {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  align-items: center;
+  justify-content: center;
+  padding: 96px 300px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.cylindrical .div-jsx-3 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 31.37px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.cylindrical .heading {
+  display: inline-flex;
+  flex-direction: column;
+  max-width: 800px;
+  align-items: center;
+  padding: 0px 1.91px 0px 2.09px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.cylindrical .here-are-the-results {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Raleway", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 72px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 115.2px;
+}
+
+.cylindrical .div-jsx-4 {
+  position: relative;
+  width: 4px;
+  height: 4px;
+  border: 2px dashed;
+  border-color: #78787866;
+}
+
+.cylindrical .div-jsx-5 {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+
+.cylindrical .footer-wrapper {
+  display: flex;
+  width: 1908px;
+  height: 315px;
+  align-items: center;
+  justify-content: center;
+  padding: 29px 416.5px;
+  position: relative;
+  background-color: #000000;
+}
+
+.cylindrical .footer {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  width: 1075px;
+  height: 257px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 64px 48px 44.82px;
+  position: relative;
+  background-color: transparent;
+}
+
+.cylindrical .div-jsx-6 {
+  position: relative;
+  max-width: 1400px;
+  width: 125.08px;
+  height: 79.19px;
+}
+
+.cylindrical .span-jsx {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cylindrical .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 36.8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+}
+
+.cylindrical .nav-2 {
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  top: 61px;
+  left: 38px;
+}
+
+.cylindrical .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #d9d9d9;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 18.4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+}
+
+.cylindrical .div-jsx-7 {
+  position: relative;
+  width: 4px;
+  height: 4px;
+  margin-left: -0.37px;
+  border: 2px dashed;
+  border-color: #78787866;
+}
+
+.cylindrical .div-jsx-8 {
+  display: flex;
+  flex-direction: column;
+  height: 65px;
+  align-items: flex-start;
+  padding: 32px 0px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  margin-top: -0.01px;
+}
+
+.cylindrical .div-jsx-9 {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 1px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: #595959;
+}
+
+.cylindrical .div-jsx-10 {
+  position: relative;
+  width: 979px;
+  height: 4px;
+  margin-top: -0.01px;
+  border: 2px dashed;
+  border-color: #78787866;
+}
+
+
+.result-text {
+  font-family: "Helvetica", sans-serif;
+  font-size: 26.75px;
+  color: #FFFFFF;
+}
+
+.race-list {
+  font-family: "Helvetica", sans-serif;
+  font-size: 26.75px;
+  color: #FFFFFF;
+}
+
+.no-data {
+  font-family: "Helvetica", sans-serif;
+  font-size: 26.75px;
+  color: #FFFFFF;
+}
+
+.upload-link {
+  font-family: "Helvetica", sans-serif;
+  font-size: 14.85px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.image-frame {
+  border: 5px solid #FFFFFF;
+  border-radius: 15px;
+  max-width: 300px;
+  max-height: 300px;
+}

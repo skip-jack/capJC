@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <div class="cylindrical">
+        <div class="div-jsx">
+            <header class="header">
+                <div class="span-jsx"><div class="w-hoo">WHOO?</div></div>
+                <div class="div">
+                    <div class="nav">
+                        <div class="link"><div class="text-wrapper">Home</div></div>
+                        <div class="link-margin"><div class="link-results">Results</div></div>
+                    </div>
+                    <div class="link-2"></div>
+                </div>
+            </header>
+        </div>
+        <div class="div-jsx-wrapper">
+            <div class="div-jsx-2">
+                <div class="div-jsx-3">
+                    <div class="heading">
+                        <div class="welcome-let-s">Welcome! Let's<br />analyze the picture</div>
+                    </div>
+                    <p class="p">Upload your image and get your details</p>
+                    <div class="div-jsx-4"></div>
+                </div>
+                <div class="div-wrapper">
+                    <div class="link-wrapper">
+                        <div class="let-s-go-wrapper"><div class="let-s-go">Let's go!</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div-jsx-5">
+            <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="imageData" id="imageData">
+
+                <div class="div-jsx-6">
+                    <div class="heading-get-your">Get your details</div>
+                    <p class="text-wrapper-2">Find out your age, gender, and race</p>
+                    <div class="div-jsx-7">
+                        <input type="file" id="uploadImage" name="file" accept="image/*" onchange="previewImage(event)">
+                        <label for="uploadImage" class="let-s-go-wrapper"><div class="let-s-go">Upload Image</div></label>
+                        <button type="button" id="takePhotoButton" class="let-s-go-wrapper"><div class="let-s-go">Take a Photo</div></button>
+                    </div>
+                </div>
+                <div class="div-jsx-8"></div>
+                <div class="link-3">
+                    <input type="submit" value="Analyze" class="text-wrapper-4">
+                </div>
+            </form>
+            <img id="imagePreview" style="max-width: 500px; display: none;">
+            <video id="camera" width="640" height="480" autoplay style="display:none;"></video>
+            <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+        </div>
+        <div class="footer-wrapper">
+            <footer class="footer">
+                <div class="div-jsx-9">
+                    <div class="div-wrapper-2"><div class="text-wrapper-5">WHOO?</div></div>
+                    <div class="nav-2">
+                        <div class="overlap-group">
+                            <div class="div-wrapper-2"><div class="text-wrapper-6">Home</div></div>
+                            <div class="div-jsx-10"></div>
+                        </div>
+                        <div class="span-jsx-2"><div class="text-wrapper-7">Results</div></div>
+                    </div>
+                </div>
+                <div class="div-jsx-11"></div>
+                <div class="div-jsx-12"><div class="div-jsx-13"></div></div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('uploadImage').addEventListener('change', function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('imagePreview');
+                output.src = reader.result;
+                output.style.display = 'block';
+                document.getElementById('camera').style.display = 'none';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        });
+
+        const video = document.getElementById('camera');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const takePhotoButton = document.getElementById('takePhotoButton');
+        const imageDataInput = document.getElementById('imageData');
+
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            video.srcObject = stream;
+            video.play();
+            video.style.display = 'block';
+        });
+
+        takePhotoButton.addEventListener('click', function() {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            context.drawImage(video, 0, 0);
+            var dataURL = canvas.toDataURL('image/png');
+            imageDataInput.value = dataURL;
+            document.getElementById('imagePreview').src = dataURL;
+            document.getElementById('imagePreview').style.display = 'block';
+            video.style.display = 'none';
+            canvas.style.display = 'none';
+            video.srcObject.getTracks().forEach(track => track.stop());
+        });
+
+        document.querySelector("form").onsubmit = function() {
+            if (imageDataInput.value) {
+                document.getElementById('uploadImage').value = '';
+            }
+        };
+    </script>
+</body>
+</html>
+
+
+

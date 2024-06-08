@@ -1,0 +1,63 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Lato:700|Inter:400,700|Raleway:700");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+
+/* General Button Styling */
+.let-s-go-wrapper {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Adjust this color to match your theme */
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.let-s-go-wrapper:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+.let-s-go {
+  font-size: 16px; /* Adjust font size as needed */
+  font-weight: bold;
+}
+
+/* Adjustments for file input labels */
+.let-s-go-wrapper input[type="file"] {
+  display: none;
+}
+
+/* Optional: Additional styling for the analyze button, if needed */
+.link-3 input[type="submit"] {
+  background-color: #28a745; /* Adjust this color to match your theme */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.link-3 input[type="submit"]:hover {
+  background-color: #218838; /* Darker shade for hover effect */
+}
+
